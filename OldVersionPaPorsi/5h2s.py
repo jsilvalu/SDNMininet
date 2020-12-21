@@ -581,6 +581,6 @@ if __name__ == '__main__':
     os.system("mn -c")
 
     #Copia de estadísticas de OpenNetMon Monitoring
-    #info(colors.HEADER+'\n [!] Obteniendo datatasets de estadisticas de OpenNetMon.........................\n\n'+colors.ENDC)
-    #os.system(command.get_openFlow_Stats)
-    #os.system(command.get_openFlow_Delay)
+    info(colors.HEADER+'\n [!] Obteniendo datatasets de estadisticas de OpenNetMon.........................\n\n'+colors.ENDC)
+    os.system(command.get_openFlow_Stats)
+    os.system(command.get_openFlow_Delay)

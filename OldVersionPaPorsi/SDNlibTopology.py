@@ -330,64 +330,199 @@ def myNetwork(cname='controller', cargs='-v ptcp:'):
     c0 = net.addController(name='c0', controller=RemoteController, protocol='tcp', port=6633)
 
     #START_TOPO
+    s0 = net.addSwitch('s0', ovsbr=OVSBridge,stp=True)   #Añado en switch 0, el host 0 y añado a las listas
+    h0 = net.addHost('h0', cls=Host, mac='00:00:00:00:00:0',ip='10.0.0.0/24', defaultRoute=None)
+    listaSwitches.append(s0)
+    listaHosts.append(h0)
+    listaNodos.append(s0)
+    listaNodos.append(h0)
 
-    info(colors.YELLOW + '[!] Creando los switches s1 y s2\n' + colors.ENDC)
-    s1 = net.addSwitch('s1', cls=OVSKernelSwitch)
-    listaNodos.append(s1)
+    s1 = net.addSwitch('s1', ovsbr=OVSBridge,stp=True)   #Añado en switch 1, el host 1 y añado a las listas
+    h1 = net.addHost('h1', cls=Host, mac='00:00:00:00:00:1',ip='10.0.0.1/24', defaultRoute=None)
     listaSwitches.append(s1)
-    s2 = net.addSwitch('s2' ,cls=OVSKernelSwitch)
-    listaNodos.append(s2)
-    listaSwitches.append(s2)
-
-
-    s3 = net.addSwitch('s3', cls=OVSKernelSwitch)
-    listaSwitches.append(s3)
-
-    info(colors.YELLOW + '[!] Creando los hosts h1 h2 h3 h4 h5\n'+colors.ENDC)
-    h1 = net.addHost('h1', cls=Host, mac='00:00:00:00:00:01',ip='10.0.0.1/24', defaultRoute=None)
     listaHosts.append(h1)
+    listaNodos.append(s1)
     listaNodos.append(h1)
-    h2 = net.addHost('h2', cls=Host, mac='00:00:00:00:00:02',ip='10.0.0.2/24', defaultRoute=None)
+
+    s2 = net.addSwitch('s2', ovsbr=OVSBridge,stp=True)   #Añado en switch 2, el host 2 y añado a las listas
+    h2 = net.addHost('h2', cls=Host, mac='00:00:00:00:00:2',ip='10.0.0.2/24', defaultRoute=None)
+    listaSwitches.append(s2)
     listaHosts.append(h2)
+    listaNodos.append(s2)
     listaNodos.append(h2)
-    h3 = net.addHost('h3', cls=Host, mac='00:00:00:00:00:03',ip='10.0.0.3/24', defaultRoute=None)
+
+    s3 = net.addSwitch('s3', ovsbr=OVSBridge,stp=True)   #Añado en switch 3, el host 3 y añado a las listas
+    h3 = net.addHost('h3', cls=Host, mac='00:00:00:00:00:3',ip='10.0.0.3/24', defaultRoute=None)
+    listaSwitches.append(s3)
     listaHosts.append(h3)
+    listaNodos.append(s3)
     listaNodos.append(h3)
-    h4 = net.addHost('h4', cls=Host, mac='00:00:00:00:00:04',ip='10.0.0.4/24', defaultRoute=None)
+
+    s4 = net.addSwitch('s4', ovsbr=OVSBridge,stp=True)   #Añado en switch 4, el host 4 y añado a las listas
+    h4 = net.addHost('h4', cls=Host, mac='00:00:00:00:00:4',ip='10.0.0.4/24', defaultRoute=None)
+    listaSwitches.append(s4)
     listaHosts.append(h4)
+    listaNodos.append(s4)
     listaNodos.append(h4)
-    h5 = net.addHost('h5', cls=Host, mac='00:00:00:00:00:05',ip='10.0.0.5/24', defaultRoute=None)
+
+    s5 = net.addSwitch('s5', ovsbr=OVSBridge,stp=True)   #Añado en switch 5, el host 5 y añado a las listas
+    h5 = net.addHost('h5', cls=Host, mac='00:00:00:00:00:5',ip='10.0.0.5/24', defaultRoute=None)
+    listaSwitches.append(s5)
     listaHosts.append(h5)
+    listaNodos.append(s5)
     listaNodos.append(h5)
 
+    s6 = net.addSwitch('s6', ovsbr=OVSBridge,stp=True)   #Añado en switch 6, el host 6 y añado a las listas
+    h6 = net.addHost('h6', cls=Host, mac='00:00:00:00:00:6',ip='10.0.0.6/24', defaultRoute=None)
+    listaSwitches.append(s6)
+    listaHosts.append(h6)
+    listaNodos.append(s6)
+    listaNodos.append(h6)
 
-    info(colors.YELLOW + '[!] Creando enlaces\n'+colors.ENDC)
+    s7 = net.addSwitch('s7', ovsbr=OVSBridge,stp=True)   #Añado en switch 7, el host 7 y añado a las listas
+    h7 = net.addHost('h7', cls=Host, mac='00:00:00:00:00:7',ip='10.0.0.7/24', defaultRoute=None)
+    listaSwitches.append(s7)
+    listaHosts.append(h7)
+    listaNodos.append(s7)
+    listaNodos.append(h7)
 
-    l1=net.addLink(h1, s1, ID=0, bw=300)
-    #l1.intf1.config(loss=50)
+    s8 = net.addSwitch('s8', ovsbr=OVSBridge,stp=True)   #Añado en switch 8, el host 8 y añado a las listas
+    h8 = net.addHost('h8', cls=Host, mac='00:00:00:00:00:8',ip='10.0.0.8/24', defaultRoute=None)
+    listaSwitches.append(s8)
+    listaHosts.append(h8)
+    listaNodos.append(s8)
+    listaNodos.append(h8)
+
+    s9 = net.addSwitch('s9', ovsbr=OVSBridge,stp=True)   #Añado en switch 9, el host 9 y añado a las listas
+    h9 = net.addHost('h9', cls=Host, mac='00:00:00:00:00:9',ip='10.0.0.9/24', defaultRoute=None)
+    listaSwitches.append(s9)
+    listaHosts.append(h9)
+    listaNodos.append(s9)
+    listaNodos.append(h9)
+
+    s10 = net.addSwitch('s10', ovsbr=OVSBridge,stp=True)   #Añado en switch 10, el host 10 y añado a las listas
+    h10 = net.addHost('h10', cls=Host, mac='00:00:00:00:00:10',ip='10.0.0.10/24', defaultRoute=None)
+    listaSwitches.append(s10)
+    listaHosts.append(h10)
+    listaNodos.append(s10)
+    listaNodos.append(h10)
+
+    s11 = net.addSwitch('s11', ovsbr=OVSBridge,stp=True)   #Añado en switch 11, el host 11 y añado a las listas
+    h11 = net.addHost('h11', cls=Host, mac='00:00:00:00:00:11',ip='10.0.0.11/24', defaultRoute=None)
+    listaSwitches.append(s11)
+    listaHosts.append(h11)
+    listaNodos.append(s11)
+    listaNodos.append(h11)
+
+
+    l0=net.addLink(s1 , s0,ID = 0, bw = 992.0, cls=TCLink)   #Añado enlace 0 y lo añado a las listas
+    listaEnlaces.append(l0)
+    listabw.append(992.0)
+
+    l1=net.addLink(s4 , s1,ID = 1, bw = 992.0, cls=TCLink)   #Añado enlace 1 y lo añado a las listas
     listaEnlaces.append(l1)
-    listabw.append(300)
-    l2=net.addLink(h2, s1, ID=1, bw=300)
+    listabw.append(992.0)
+
+    l2=net.addLink(s5 , s1,ID = 2, bw = 248.0, cls=TCLink)   #Añado enlace 2 y lo añado a las listas
     listaEnlaces.append(l2)
-    listabw.append(300)
-    l3=net.addLink(h3, s1, ID=2, bw=300)
+    listabw.append(248.0)
+
+    l3=net.addLink(s11 , s1,ID = 3, bw = 992.0, cls=TCLink)   #Añado enlace 3 y lo añado a las listas
     listaEnlaces.append(l3)
-    listabw.append(300)
-    l4=net.addLink(s2, h4, ID=3, bw=300)
+    listabw.append(992.0)
+
+    l4=net.addLink(s5 , s2,ID = 4, bw = 992.0, cls=TCLink)   #Añado enlace 4 y lo añado a las listas
     listaEnlaces.append(l4)
-    listabw.append(300)
-    l5=net.addLink(s2, h5, ID=4, bw=300)
+    listabw.append(992.0)
+
+    l5=net.addLink(s8 , s2,ID = 5, bw = 992.0, cls=TCLink)   #Añado enlace 5 y lo añado a las listas
     listaEnlaces.append(l5)
-    listabw.append(300)
+    listabw.append(992.0)
 
-    # Enlace entre ambos switches
-    l6=net.addLink(s1, s2, ID=5, bw=300)
+    l6=net.addLink(s6 , s3,ID = 6, bw = 992.0, cls=TCLink)   #Añado enlace 6 y lo añado a las listas
     listaEnlaces.append(l6)
-    listabw.append(300)
+    listabw.append(992.0)
 
-    net.addLink(s1,s3)
-    net.addLink(s3,s2)
+    l7=net.addLink(s9 , s3,ID = 7, bw = 992.0, cls=TCLink)   #Añado enlace 7 y lo añado a las listas
+    listaEnlaces.append(l7)
+    listabw.append(992.0)
 
+    l8=net.addLink(s10 , s3,ID = 8, bw = 992.0, cls=TCLink)   #Añado enlace 8 y lo añado a las listas
+    listaEnlaces.append(l8)
+    listabw.append(992.0)
+
+    l9=net.addLink(s6 , s4,ID = 9, bw = 992.0, cls=TCLink)   #Añado enlace 9 y lo añado a las listas
+    listaEnlaces.append(l9)
+    listabw.append(992.0)
+
+    l10=net.addLink(s7 , s4,ID = 10, bw = 992.0, cls=TCLink)   #Añado enlace 10 y lo añado a las listas
+    listaEnlaces.append(l10)
+    listabw.append(992.0)
+
+    l11=net.addLink(s6 , s5,ID = 11, bw = 992.0, cls=TCLink)   #Añado enlace 11 y lo añado a las listas
+    listaEnlaces.append(l11)
+    listabw.append(992.0)
+
+    l12=net.addLink(s9 , s7,ID = 12, bw = 992.0, cls=TCLink)   #Añado enlace 12 y lo añado a las listas
+    listaEnlaces.append(l12)
+    listabw.append(992.0)
+
+    l13=net.addLink(s11 , s8,ID = 13, bw = 992.0, cls=TCLink)   #Añado enlace 13 y lo añado a las listas
+    listaEnlaces.append(l13)
+    listabw.append(992.0)
+
+    l14=net.addLink(s10 , s9,ID = 14, bw = 992.0, cls=TCLink)   #Añado enlace 14 y lo añado a las listas
+    listaEnlaces.append(l14)
+    listabw.append(992.0)
+    #Conexión de cada host con su switch, adición en la listaEnlaces y listabw para el procesado final
+
+    l15=net.addLink(h0 , s0,ID = 15, cls=TCLink)   #Añado enlace 15 y lo añado a las listas
+    listaEnlaces.append(l15)
+    listabw.append(1000)
+
+    l16=net.addLink(h1 , s1,ID = 16, cls=TCLink)   #Añado enlace 16 y lo añado a las listas
+    listaEnlaces.append(l16)
+    listabw.append(1000)
+
+    l17=net.addLink(h2 , s2,ID = 17, cls=TCLink)   #Añado enlace 17 y lo añado a las listas
+    listaEnlaces.append(l17)
+    listabw.append(1000)
+
+    l18=net.addLink(h3 , s3,ID = 18, cls=TCLink)   #Añado enlace 18 y lo añado a las listas
+    listaEnlaces.append(l18)
+    listabw.append(1000)
+
+    l19=net.addLink(h4 , s4,ID = 19, cls=TCLink)   #Añado enlace 19 y lo añado a las listas
+    listaEnlaces.append(l19)
+    listabw.append(1000)
+
+    l20=net.addLink(h5 , s5,ID = 20, cls=TCLink)   #Añado enlace 20 y lo añado a las listas
+    listaEnlaces.append(l20)
+    listabw.append(1000)
+
+    l21=net.addLink(h6 , s6,ID = 21, cls=TCLink)   #Añado enlace 21 y lo añado a las listas
+    listaEnlaces.append(l21)
+    listabw.append(1000)
+
+    l22=net.addLink(h7 , s7,ID = 22, cls=TCLink)   #Añado enlace 22 y lo añado a las listas
+    listaEnlaces.append(l22)
+    listabw.append(1000)
+
+    l23=net.addLink(h8 , s8,ID = 23, cls=TCLink)   #Añado enlace 23 y lo añado a las listas
+    listaEnlaces.append(l23)
+    listabw.append(1000)
+
+    l24=net.addLink(h9 , s9,ID = 24, cls=TCLink)   #Añado enlace 24 y lo añado a las listas
+    listaEnlaces.append(l24)
+    listabw.append(1000)
+
+    l25=net.addLink(h10 , s10,ID = 25, cls=TCLink)   #Añado enlace 25 y lo añado a las listas
+    listaEnlaces.append(l25)
+    listabw.append(1000)
+
+    l26=net.addLink(h11 , s11,ID = 26, cls=TCLink)   #Añado enlace 26 y lo añado a las listas
+    listaEnlaces.append(l26)
+    listabw.append(1000)
     #END_TOPO
 
 
@@ -581,6 +716,6 @@ if __name__ == '__main__':
     os.system("mn -c")
 
     #Copia de estadísticas de OpenNetMon Monitoring
-    #info(colors.HEADER+'\n [!] Obteniendo datatasets de estadisticas de OpenNetMon.........................\n\n'+colors.ENDC)
-    #os.system(command.get_openFlow_Stats)
-    #os.system(command.get_openFlow_Delay)
+    info(colors.HEADER+'\n [!] Obteniendo datatasets de estadisticas de OpenNetMon.........................\n\n'+colors.ENDC)
+    os.system(command.get_openFlow_Stats)
+    os.system(command.get_openFlow_Delay)

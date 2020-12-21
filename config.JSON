@@ -1,0 +1,31 @@
+{
+    "TIME":{
+        "tiempo_ejecucion":"60",        
+        "intervalo_extraccion":"1",     
+        "intervalo_iperf_cliente":"1", 
+        "intervalo_iperf_servidor":"1",  
+        "duracion_iperf_cliente":"45"   
+    },
+
+    "PING":{
+        "ejecutar_ping":"0"
+    },
+
+    "IPERF":{
+        "protocol":" -u",
+        "port":5201
+    },
+
+    "TRAFFIC":   
+    [
+        [0,  20, 30, 40, 50],
+        [10,  0, 30, 40, 50],
+        [10, 20,  0, 40, 50],
+        [10, 20, 30,  0, 50],
+        [10, 20, 30, 40,  0]
+    ]
+}
+
+
+
+
